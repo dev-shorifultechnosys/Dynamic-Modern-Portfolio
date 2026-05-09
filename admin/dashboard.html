@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Admin Dashboard | Dynamic Portfolio</title>
+  <meta name="description" content="Admin dashboard for managing portfolio projects, services, skills, testimonials, about section, social links, contact info, and messages.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body class="admin-body" data-admin-dashboard>
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-logo"><i class="bi bi-grid-1x2-fill text-info"></i> Portfolio Admin</div>
+      <nav class="admin-nav">
+        <a href="#overview" data-admin-link class="active"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="#site" data-admin-link><i class="bi bi-sliders"></i> Site Settings</a>
+        <a href="#about" data-admin-link><i class="bi bi-person-badge"></i> About Me</a>
+        <a href="#stats" data-admin-link><i class="bi bi-bar-chart-steps"></i> Stats</a>
+        <a href="#services" data-admin-link><i class="bi bi-briefcase"></i> Services</a>
+        <a href="#skills" data-admin-link><i class="bi bi-lightning-charge"></i> Skills</a>
+        <a href="#experience" data-admin-link><i class="bi bi-clock-history"></i> Experience</a>
+        <a href="#projects" data-admin-link><i class="bi bi-folder2-open"></i> Projects</a>
+        <a href="#testimonials" data-admin-link><i class="bi bi-chat-quote"></i> Testimonials</a>
+        <a href="#socials" data-admin-link><i class="bi bi-share"></i> Social Links</a>
+        <a href="#contact-info" data-admin-link><i class="bi bi-person-lines-fill"></i> Contact Info</a>
+        <a href="#messages" data-admin-link><i class="bi bi-envelope-paper"></i> Messages</a>
+        <a href="#tools" data-admin-link><i class="bi bi-database"></i> Backup Tools</a>
+        <a href="../index.html" target="_blank"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+        <button id="logout-btn"><i class="bi bi-box-arrow-left"></i> Logout</button>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-dark rounded-pill mobile-admin-toggle" id="mobile-admin-toggle"><i class="bi bi-list"></i></button>
+          <div>
+            <h1 class="h3 fw-black mb-1" id="admin-page-title">Dashboard Overview</h1>
+            <p class="text-muted mb-0">Manage the full portfolio website from here.</p>
+          </div>
+        </div>
+        <span class="badge text-bg-success rounded-pill px-3 py-2"><i class="bi bi-check-circle"></i> Logged In</span>
+      </header>
+
+      <section class="admin-section active" id="section-overview">
+        <div class="row g-4" id="dashboard-stats"></div>
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-3">What is upgraded?</h2>
+          <p class="text-muted mb-0">This dashboard now manages site settings, about content, stats, services, skills, experience timeline, projects, testimonials, social links, contact information, messages, plus backup import/export. It still works with HTML, CSS, JavaScript, Bootstrap, and browser localStorage.</p>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-site">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Site Settings</h2>
+          <form id="site-form">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label fw-semibold">Brand Name</label><input type="text" id="site-brand-name" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label fw-semibold">Logo Text</label><input type="text" id="site-logo-text" class="form-control" required></div>
+              <div class="col-12"><label class="form-label fw-semibold">Footer Tagline</label><input type="text" id="site-tagline" class="form-control"></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Primary Color</label><input type="color" id="site-primary-color" class="form-control form-control-color w-100"></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Secondary Color</label><input type="color" id="site-secondary-color" class="form-control form-control-color w-100"></div>
+              <div class="col-md-4 d-flex align-items-end"><div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="site-dark-hero"><label class="form-check-label fw-semibold" for="site-dark-hero">Keep premium hero style</label></div></div>
+              <div class="col-12"><button type="submit" class="btn btn-success rounded-pill px-4"><i class="bi bi-save"></i> Save Settings</button></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-about">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">About Me Management</h2>
+          <form id="about-form">
+            <input type="hidden" id="about-profile-existing">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label fw-semibold">Name</label><input type="text" id="about-name" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label fw-semibold">Professional Title</label><input type="text" id="about-title-input" class="form-control" required></div>
+              <div class="col-12"><label class="form-label fw-semibold">Hero Intro</label><textarea id="about-intro" class="form-control" rows="3" required></textarea></div>
+              <div class="col-12"><label class="form-label fw-semibold">About Description</label><textarea id="about-description-input" class="form-control" rows="5" required></textarea></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Experience Text</label><input type="text" id="about-experience-input" class="form-control"></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Location</label><input type="text" id="about-location-input" class="form-control"></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Availability</label><input type="text" id="about-availability-input" class="form-control"></div>
+              <div class="col-md-6"><label class="form-label fw-semibold">Profile Image</label><input type="file" id="profile-image-file" class="form-control" accept="image/*"></div>
+              <div class="col-md-6"><label class="form-label fw-semibold d-block">Preview</label><img id="about-profile-preview" class="preview-image" alt="Profile preview"></div>
+              <div class="col-12"><button type="submit" class="btn btn-success rounded-pill px-4"><i class="bi bi-save"></i> Save About</button></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-stats">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Stats Management</h2>
+          <form id="stat-form" class="row g-3 align-items-end border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="stat-id">
+            <div class="col-md-4"><label class="form-label fw-semibold">Label</label><input type="text" id="stat-label" class="form-control" placeholder="Projects Completed" required></div>
+            <div class="col-md-3"><label class="form-label fw-semibold">Value</label><input type="text" id="stat-value" class="form-control" placeholder="80+" required></div>
+            <div class="col-md-3"><label class="form-label fw-semibold">Bootstrap Icon</label><input type="text" id="stat-icon" class="form-control" placeholder="bi-kanban"></div>
+            <div class="col-md-2 d-grid"><button type="submit" class="btn btn-success rounded-pill"><i class="bi bi-save"></i> Save</button></div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Icon</th><th>Value</th><th>Label</th><th class="text-end">Action</th></tr></thead><tbody id="stats-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-services">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Services Management</h2>
+          <form id="service-form" class="row g-3 align-items-end border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="service-id">
+            <div class="col-md-4"><label class="form-label fw-semibold">Service Title</label><input type="text" id="service-title" class="form-control" required></div>
+            <div class="col-md-3"><label class="form-label fw-semibold">Icon Class</label><input type="text" id="service-icon" class="form-control" placeholder="bi-code-square"></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">Order</label><input type="number" id="service-order" class="form-control" min="1"></div>
+            <div class="col-md-3 d-grid"><button type="submit" class="btn btn-success rounded-pill"><i class="bi bi-save"></i> Save Service</button></div>
+            <div class="col-12"><label class="form-label fw-semibold">Description</label><textarea id="service-description" class="form-control" rows="3" required></textarea></div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Order</th><th>Icon</th><th>Service</th><th class="text-end">Action</th></tr></thead><tbody id="services-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-skills">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Skills Management</h2>
+          <form id="skill-form" class="row g-3 align-items-end border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="skill-id">
+            <div class="col-md-3"><label class="form-label fw-semibold">Skill Name</label><input type="text" id="skill-name" class="form-control" required></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">Category</label><input type="text" id="skill-category" class="form-control" placeholder="Frontend"></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">Level %</label><input type="number" id="skill-level" class="form-control" min="0" max="100" required></div>
+            <div class="col-md-3"><label class="form-label fw-semibold">Icon Class</label><input type="text" id="skill-icon" class="form-control" placeholder="bi-code-slash"></div>
+            <div class="col-md-2 d-grid"><button type="submit" class="btn btn-success rounded-pill"><i class="bi bi-save"></i> Save</button></div>
+            <div class="col-12"><label class="form-label fw-semibold">Short Description</label><textarea id="skill-description" class="form-control" rows="2"></textarea></div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Icon</th><th>Skill</th><th>Category</th><th>Level</th><th class="text-end">Action</th></tr></thead><tbody id="skills-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-experience">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Experience Management</h2>
+          <form id="experience-form" class="row g-3 align-items-end border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="experience-id">
+            <div class="col-md-3"><label class="form-label fw-semibold">Role / Title</label><input type="text" id="experience-role" class="form-control" required></div>
+            <div class="col-md-3"><label class="form-label fw-semibold">Company / Source</label><input type="text" id="experience-company" class="form-control"></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">Start</label><input type="text" id="experience-start" class="form-control" placeholder="2023"></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">End</label><input type="text" id="experience-end" class="form-control" placeholder="Present"></div>
+            <div class="col-md-2 d-grid"><button type="submit" class="btn btn-success rounded-pill"><i class="bi bi-save"></i> Save</button></div>
+            <div class="col-12"><label class="form-label fw-semibold">Description</label><textarea id="experience-description" class="form-control" rows="3"></textarea></div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Role</th><th>Time</th><th>Description</th><th class="text-end">Action</th></tr></thead><tbody id="experience-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-projects">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Project Management</h2>
+          <form id="project-form" class="border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="project-id">
+            <input type="hidden" id="project-image-existing">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label fw-semibold">Project Title</label><input type="text" id="project-title" class="form-control" required></div>
+              <div class="col-md-3"><label class="form-label fw-semibold">Category</label><input type="text" id="project-category" class="form-control" placeholder="Web Design" required></div>
+              <div class="col-md-3"><label class="form-label fw-semibold">Project Date</label><input type="date" id="project-date" class="form-control"></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Project Link</label><input type="url" id="project-link" class="form-control" placeholder="https://example.com"></div>
+              <div class="col-md-3"><label class="form-label fw-semibold">Client</label><input type="text" id="project-client" class="form-control"></div>
+              <div class="col-md-3"><label class="form-label fw-semibold">Your Role</label><input type="text" id="project-role" class="form-control"></div>
+              <div class="col-md-2"><label class="form-label fw-semibold">Duration</label><input type="text" id="project-duration" class="form-control" placeholder="7 Days"></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Status</label><select id="project-status" class="form-select"><option value="published">Published</option><option value="draft">Draft</option></select></div>
+              <div class="col-md-4 d-flex align-items-end"><div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="project-featured"><label class="form-check-label fw-semibold" for="project-featured">Featured project</label></div></div>
+              <div class="col-md-4"><label class="form-label fw-semibold">Project Image</label><input type="file" id="project-image-file" class="form-control" accept="image/*"></div>
+              <div class="col-12"><img id="project-image-preview" class="preview-image d-none" alt="Image preview"></div>
+              <div class="col-12"><label class="form-label fw-semibold">Short Description</label><input type="text" id="project-short-description" class="form-control" maxlength="200" required></div>
+              <div class="col-12"><label class="form-label fw-semibold">Full Description</label><textarea id="project-description" class="form-control" rows="5" required></textarea></div>
+              <div class="col-12"><label class="form-label fw-semibold">Technologies / Tools</label><input type="text" id="project-technologies" class="form-control" placeholder="HTML, CSS, JavaScript, Bootstrap"></div>
+              <div class="col-12 d-flex gap-2 flex-wrap"><button type="submit" class="btn btn-success rounded-pill px-4"><i class="bi bi-save"></i> Save Project</button><button type="button" class="btn btn-outline-secondary rounded-pill px-4" onclick="resetProjectForm()">Clear Form</button></div>
+            </div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Image</th><th>Title</th><th>Category</th><th>Status</th><th>Date</th><th class="text-end">Action</th></tr></thead><tbody id="projects-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-testimonials">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Testimonials Management</h2>
+          <form id="testimonial-form" class="row g-3 align-items-end border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="testimonial-id">
+            <div class="col-md-4"><label class="form-label fw-semibold">Client Name</label><input type="text" id="testimonial-name" class="form-control" required></div>
+            <div class="col-md-4"><label class="form-label fw-semibold">Role / Company</label><input type="text" id="testimonial-role" class="form-control"></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">Rating</label><input type="number" id="testimonial-rating" class="form-control" min="1" max="5" value="5"></div>
+            <div class="col-md-2 d-grid"><button type="submit" class="btn btn-success rounded-pill"><i class="bi bi-save"></i> Save</button></div>
+            <div class="col-12"><label class="form-label fw-semibold">Message</label><textarea id="testimonial-message" class="form-control" rows="3" required></textarea></div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Client</th><th>Rating</th><th>Message</th><th class="text-end">Action</th></tr></thead><tbody id="testimonials-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-socials">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Social Links Management</h2>
+          <form id="social-form" class="row g-3 align-items-end border rounded-4 p-3 p-lg-4 mb-4 bg-light">
+            <input type="hidden" id="social-id">
+            <div class="col-md-3"><label class="form-label fw-semibold">Platform</label><input type="text" id="social-platform" class="form-control" placeholder="Facebook" required></div>
+            <div class="col-md-5"><label class="form-label fw-semibold">URL</label><input type="url" id="social-url" class="form-control" placeholder="https://facebook.com" required></div>
+            <div class="col-md-2"><label class="form-label fw-semibold">Icon</label><input type="text" id="social-icon" class="form-control" placeholder="bi-facebook"></div>
+            <div class="col-md-2 d-grid"><button type="submit" class="btn btn-success rounded-pill"><i class="bi bi-save"></i> Save</button></div>
+          </form>
+          <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Icon</th><th>Platform</th><th>URL</th><th class="text-end">Action</th></tr></thead><tbody id="socials-table"></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-contact-info">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-4">Contact Information</h2>
+          <form id="contact-info-form">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label fw-semibold">Email</label><input type="email" id="contact-email-input" class="form-control"></div>
+              <div class="col-md-6"><label class="form-label fw-semibold">Phone</label><input type="text" id="contact-phone-input" class="form-control"></div>
+              <div class="col-md-6"><label class="form-label fw-semibold">WhatsApp</label><input type="text" id="contact-whatsapp-input" class="form-control"></div>
+              <div class="col-md-6"><label class="form-label fw-semibold">Address</label><input type="text" id="contact-address-input" class="form-control"></div>
+              <div class="col-12"><label class="form-label fw-semibold">Location / Work Mode Text</label><input type="text" id="contact-location-input" class="form-control"></div>
+              <div class="col-12"><button type="submit" class="btn btn-success rounded-pill px-4"><i class="bi bi-save"></i> Save Contact Info</button></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-messages">
+        <div id="messages-wrapper"></div>
+      </section>
+
+      <section class="admin-section" id="section-tools">
+        <div class="admin-card">
+          <h2 class="h4 fw-bold mb-3">Backup & Data Tools</h2>
+          <p class="text-muted">Export your localStorage content as JSON, import it again, or reset the demo data. This is useful while testing the static HTML version.</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <button class="btn btn-primary rounded-pill px-4" id="export-data-btn"><i class="bi bi-download"></i> Export Backup</button>
+            <label class="btn btn-outline-primary rounded-pill px-4 mb-0"><i class="bi bi-upload"></i> Import Backup <input type="file" id="import-data-file" accept="application/json" hidden></label>
+            <button class="btn btn-outline-danger rounded-pill px-4" id="reset-demo-data-btn"><i class="bi bi-arrow-counterclockwise"></i> Reset Demo Data</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

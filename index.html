@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Dynamic Portfolio Website</title>
+  <meta name="description" content="Modern dynamic portfolio website with project showcase, services, skills, testimonials, contact form, and admin-managed content.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body data-homepage>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="gradient-text" data-brand-name>Portfolio</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-dark rounded-pill px-3 ms-lg-2" href="admin/login.html">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero-section">
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <p class="hero-kicker mb-3"><i class="bi bi-stars"></i> Modern Dynamic Portfolio</p>
+          <h1 class="hero-title mb-4">Hi, I’m <span class="gradient-text" id="hero-name">Your Name</span></h1>
+          <h2 class="h3 fw-bold mb-3" id="hero-title">Creative Web Designer & Developer</h2>
+          <p class="lead text-muted mb-4" id="hero-intro">I create clean and professional websites.</p>
+          <div class="hero-meta mb-4">
+            <span><i class="bi bi-geo-alt me-2 text-primary"></i><span id="hero-location"></span></span>
+            <span><i class="bi bi-circle-fill me-2 text-success small"></i><span id="hero-availability"></span></span>
+          </div>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#portfolio" class="btn-primary-custom"><i class="bi bi-grid-3x3-gap"></i> View Portfolio</a>
+            <a href="#contact" class="btn-outline-custom"><i class="bi bi-send"></i> Contact Me</a>
+          </div>
+          <div class="hero-skill-chips" id="hero-skill-chips"></div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-card">
+            <div class="floating-panel d-none d-sm-block">
+              <strong class="d-block">Admin Managed</strong>
+              <small class="text-muted">Projects, skills, services, testimonials, and messages.</small>
+            </div>
+            <img src="" data-profile-image alt="Profile image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-4" id="stats-wrapper"></div>
+    </div>
+  </section>
+
+  <section id="about" class="section-padding bg-soft">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <img class="about-image" src="" data-profile-image alt="About profile image">
+        </div>
+        <div class="col-lg-7">
+          <span class="badge-soft d-inline-block mb-3">About Me</span>
+          <h2 class="section-title" id="about-title">About Title</h2>
+          <p class="text-muted fs-5" id="about-description">About description will appear here.</p>
+          <div class="about-list">
+            <p><i class="bi bi-award text-primary me-2"></i><span id="about-experience">5+ Years Experience</span></p>
+            <p><i class="bi bi-geo-alt text-primary me-2"></i><span id="about-location"></span></p>
+            <p><i class="bi bi-check-circle text-primary me-2"></i><span id="about-availability"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge-soft d-inline-block mb-3">Services</span>
+        <h2 class="section-title">What I Can Build for You</h2>
+        <p class="section-subtitle">Services are fully dynamic. Add, edit, reorder, or remove service cards directly from the admin dashboard.</p>
+      </div>
+      <div class="row g-4" id="services-wrapper"></div>
+    </div>
+  </section>
+
+  <section id="skills" class="section-padding bg-dark-soft">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge-soft d-inline-block mb-3">Skills</span>
+        <h2 class="section-title text-white">My Core Skills</h2>
+        <p class="section-subtitle">A bigger, editable skill system with categories, levels, icons, and descriptions.</p>
+      </div>
+      <div class="d-flex justify-content-center gap-2 flex-wrap mb-4" id="skill-filters"></div>
+      <div class="row g-4" id="skills-wrapper"></div>
+    </div>
+  </section>
+
+  <section id="experience" class="section-padding bg-soft">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge-soft d-inline-block mb-3">Experience</span>
+        <h2 class="section-title">Work Timeline</h2>
+        <p class="section-subtitle">Show your professional background, freelance journey, education, or project milestones from the admin panel.</p>
+      </div>
+      <div class="timeline" id="experience-wrapper"></div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge-soft d-inline-block mb-3">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Projects support category filters, search, featured badges, image upload, and separate project detail pages.</p>
+      </div>
+      <div class="project-toolbar">
+        <div class="d-flex gap-2 flex-wrap" id="project-filters"></div>
+        <div class="project-search">
+          <i class="bi bi-search"></i>
+          <input type="search" id="project-search" class="form-control" placeholder="Search projects...">
+        </div>
+      </div>
+      <div class="row g-4" id="projects-wrapper"></div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section-padding bg-soft">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge-soft d-inline-block mb-3">Testimonials</span>
+        <h2 class="section-title">Client Feedback</h2>
+        <p class="section-subtitle">Add real client reviews from the admin panel and display them in a clean, trust-building section.</p>
+      </div>
+      <div class="row g-4" id="testimonials-wrapper"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <span class="badge-soft d-inline-block mb-3">Contact</span>
+        <h2 class="section-title">Let’s Work Together</h2>
+        <p class="section-subtitle">Contact form submissions are saved in the admin dashboard under messages.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="contact-card p-4 p-lg-5 h-100">
+            <h3 class="fw-bold mb-4">Contact Information</h3>
+            <div class="contact-row"><i class="bi bi-envelope"></i><div><strong>Email</strong><br><a id="contact-email-link" href="#"><span id="contact-email"></span></a></div></div>
+            <div class="contact-row"><i class="bi bi-telephone"></i><div><strong>Phone</strong><br><a id="contact-phone-link" href="#"><span id="contact-phone"></span></a></div></div>
+            <div class="contact-row"><i class="bi bi-geo-alt"></i><div><strong>Address</strong><br><span id="contact-address"></span></div></div>
+            <div class="contact-row"><i class="bi bi-map"></i><div><strong>Work Mode</strong><br><span id="contact-location"></span></div></div>
+            <a id="contact-whatsapp" href="#" class="btn-primary-custom mb-4" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp Me</a>
+            <div data-social-links></div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="contact-card p-4 p-lg-5">
+            <form id="contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Name</label>
+                  <input type="text" name="name" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Email</label>
+                  <input type="email" name="email" class="form-control" placeholder="Your email" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Subject</label>
+                  <input type="text" name="subject" class="form-control" placeholder="Project inquiry">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Message</label>
+                  <textarea name="message" class="form-control" rows="5" placeholder="Tell me about your project" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom"><i class="bi bi-send"></i> Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h2 class="h4 fw-bold text-white mb-2" data-brand-name>Portfolio</h2>
+          <p class="mb-0" data-site-tagline>Modern dynamic portfolio website with admin-managed content.</p>
+        </div>
+        <div class="col-lg-6 text-lg-end">
+          <div data-social-links class="mb-3"></div>
+          <p class="mb-0 small">© <span id="year"></span> <span data-brand-name>Portfolio</span>. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
